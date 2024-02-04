@@ -1,0 +1,2 @@
+com.ptc.vuforia.engine-10.20.3é.tgz filter=lfs diff=lfs merge=lfs -text
+vuforia.tgz filter=lfs diff=lfs merge=lfs -text

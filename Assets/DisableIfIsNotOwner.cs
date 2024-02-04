@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using FishNet.Object;
@@ -8,7 +9,7 @@ public class DisableIfIsNotOwner : NetworkBehaviour
     [SerializeField] protected Behaviour component;
 
 
-    public override void OnStartClient()
+   /* public override void OnStartClient()
     {
         base.OnStartClient();
 
@@ -23,5 +24,17 @@ public class DisableIfIsNotOwner : NetworkBehaviour
         base.OnStartServer();
 
         component.enabled = false;
+    }*/
+
+    public void Start()
+    {
+        if (OwnerMatches(LocalConnection))
+        {
+            component.enabled = true;
+        }
+        else
+        {
+            component.enabled = false;
+        }
     }
 }

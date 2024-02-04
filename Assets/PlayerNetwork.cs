@@ -10,11 +10,14 @@ public class PlayerNetwork : NetworkBehaviour
 {
     // Start is called before the first frame update
     [SyncVar] public int id;
-    [SyncVar] public string pseudo;
     [SerializeField] private GameManager gameManager;
     public TextMeshProUGUI pseudoText;
     public int Id => id;
     [SerializeField] private List<NetworkBehaviour> ObjectsToChangeOwnerShip;
+    
+    
+    public GameObject pistol;
+    public GameObject code1;
     
     public void SetId(int id)
     {
@@ -42,6 +45,7 @@ public class PlayerNetwork : NetworkBehaviour
         gameManager.playerList.Add(this);
         
         pseudoText.text = "Joueur " + (id+1);
+        pseudoText.color = gameManager.playerColors[id];
         RequestOwnershipOnClientStarted();
     }
     
@@ -60,6 +64,15 @@ public class PlayerNetwork : NetworkBehaviour
     {
         base.OnStopClient();
         gameManager.playerList.Remove(this);
+    }
+    public void GivePistol()
+    {
+        pistol.SetActive(true);
+    }
+    
+    public void GiveCode1()
+    {
+        code1.SetActive(true);
     }
 
 }
