@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+  <Tracking>
+    <ImageTarget name="enim5" size="1.000000 1.000000" />
+    <ImageTarget name="enim4" size="1.000000 1.000000" />
+    <ImageTarget name="enim3" size="1.000000 1.000000" />
+    <ImageTarget name="enim2" size="1.000000 1.000000" />
+    <ImageTarget name="enim1" size="1.000000 1.000000" />
+  </Tracking>
+</QCARConfig>
