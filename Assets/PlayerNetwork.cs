@@ -18,6 +18,9 @@ public class PlayerNetwork : NetworkBehaviour
     
     public GameObject pistol;
     public GameObject code1;
+    public GameObject scissors;
+    public GameObject code2;
+    public GameObject Enim2Interface;
     
     public void SetId(int id)
     {
@@ -74,5 +77,15 @@ public class PlayerNetwork : NetworkBehaviour
     {
         code1.SetActive(true);
     }
+    public void GiveScissors()
+    {
+        scissors.SetActive(true);
+    }
+    public void GiveCode2()
+    {
+        code2.SetActive(true);
+    }
+    
+    
 
 }
