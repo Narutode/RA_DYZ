@@ -6,6 +6,8 @@ using FishNet.Object.Synchronizing;
 using TMPro;
 using UnityEngine;
 
+public delegate void TimeUpdate(float newTime);
+public delegate void UpdateMessage(string message);
 public class PlayerNetwork : NetworkBehaviour
 {
     // Start is called before the first frame update
@@ -21,7 +23,11 @@ public class PlayerNetwork : NetworkBehaviour
     public GameObject scissors;
     public GameObject code2;
     public GameObject Enim2Interface;
-    
+    public TextMeshProUGUI Enim3WrongTimeLeft;
+    public TextMeshProUGUI Enim3WrongMessage;
+    public GameObject code3;
+    public GameObject code4;
+    public TextMeshProUGUI EndGameMessage;
     public void SetId(int id)
     {
         this.id = id;
@@ -33,6 +39,7 @@ public class PlayerNetwork : NetworkBehaviour
         
     }
     
+   
     private void RequestOwnershipOnClientStarted(NetworkConnection conn = null)
     {
         //Debug.Log($"Requesting ownership for client. NetworkConnection is: {conn.ClientId}.");
@@ -41,6 +48,8 @@ public class PlayerNetwork : NetworkBehaviour
     }
     void Start()
     {
+        GameManager.OnTimeUpdate += UpdateTimeText;
+        GameManager.OnMessageUpdate += UpdateMessageText;
         gameManager = FindObjectOfType<GameManager>();
         NetworkObject networkObject = GetComponent<NetworkObject>();
         id = networkObject.Owner.ClientId;
@@ -67,6 +76,9 @@ public class PlayerNetwork : NetworkBehaviour
     {
         base.OnStopClient();
         gameManager.playerList.Remove(this);
+        
+        GameManager.OnTimeUpdate -= UpdateTimeText;
+        GameManager.OnMessageUpdate -= UpdateMessageText;
     }
     public void GivePistol()
     {
@@ -85,7 +97,39 @@ public class PlayerNetwork : NetworkBehaviour
     {
         code2.SetActive(true);
     }
+    public void GiveCode3()
+    {
+        code3.SetActive(true);
+    }
+    public void GiveCode4()
+    {
+        code4.SetActive(true);
+    }
     
+    [ObserversRpc(RunLocally = true)]
+    // Méthode pour mettre à jour le texte du temps
+    private void UpdateTimeText(float newTime)
+    { 
+        if(newTime < 0)
+        {
+            Enim3WrongTimeLeft.text="";
+            return;
+        }
+        // Convertir le temps en minutes, secondes 
+        int minutes = Mathf.FloorToInt(newTime / 60);
+        int seconds = Mathf.FloorToInt(newTime % 60);
+        // Formater la chaîne de temps
+        string formattedTime = string.Format("{0:D2}:{1:D2}", minutes, seconds);
+        // Mettre à jour le texte
+        Enim3WrongTimeLeft.text = formattedTime;
+    }
+    [ObserversRpc(RunLocally = true)]
+    private void UpdateMessageText(string message)
+    {
+        Enim3WrongMessage.text = message;
+    }
+    
+
     
 
 }

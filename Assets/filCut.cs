@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class filCut : NetworkBehaviour
 {
+
+    public GameManager gameManager;
+    
     public void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -15,37 +18,35 @@ public class filCut : NetworkBehaviour
             {
                    if (LocalConnection.ClientId == 0)
                     {
-                        if (hit.transform.name == "filjaune")
+                        if(gameManager.gainscissors && gameManager.cutWrong==false)
                         {
-                            wrongCut();
+                            if (hit.transform.name == "filJaune")
+                            {
+                                gameManager.rightCut();
+                                Despawn(hit.transform.gameObject);
+                            }
+                            else if (hit.transform.name == "filBleu")
+                            {
+                                gameManager.wrongCut();
+                                Despawn(hit.transform.gameObject);
+                            }
+                            else if (hit.transform.name == "filRouge")
+                            {
+                                gameManager.wrongCut();
+                                Despawn(hit.transform.gameObject);
+                            }
+                            else if (hit.transform.name == "filVert")
+                            {
+                                gameManager.wrongCut();
+                                Despawn(hit.transform.gameObject);
+                            }
                         }
-                        else if (hit.transform.name == "filbleu")
-                        {
-                            rightCut();
-                        }
-                        else if (hit.transform.name == "filrouge")
-                        {
-                            wrongCut();
-                        }
-                        else if (hit.transform.name == "filvert")
-                        {
-                            wrongCut();
-                        }
-                        
-                        
                     }
 
                
             }
         }
     }
-    public void wrongCut()
-    {
-        Debug.Log("wrong cut");
-    }
-    public void rightCut()
-    {
-        Debug.Log("right cut");
-    }
+
     
 }
