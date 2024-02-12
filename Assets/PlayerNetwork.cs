@@ -46,14 +46,22 @@ public class PlayerNetwork : NetworkBehaviour
 
         GiveOwnershipToClient(conn);
     }
-    void Start()
+    public override  void OnStartClient()
     {
+        base.OnStartClient();  
         GameManager.OnTimeUpdate += UpdateTimeText;
         GameManager.OnMessageUpdate += UpdateMessageText;
         gameManager = FindObjectOfType<GameManager>();
         NetworkObject networkObject = GetComponent<NetworkObject>();
-        id = networkObject.Owner.ClientId;
-        Debug.Log("Login Player id : " + id);
+        if (networkObject.Owner.ClientId == -1)
+        {
+            id = 0;
+        }
+        else
+        {
+            id = networkObject.Owner.ClientId;
+        }
+        Debug.Log("Login Player id : " + LocalConnection.ClientId);
         gameManager.playerList.Add(this);
         
         pseudoText.text = "Joueur " + (id+1);

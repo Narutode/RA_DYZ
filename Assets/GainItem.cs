@@ -32,6 +32,12 @@ public class GainItem : NetworkBehaviour
                     gameManager.playerList[0].GiveCode3();
                     gameManager.playerList[1].GiveCode3();
                 }
+                if(itemName == "Code4" && LocalConnection.ClientId == 1)
+                {
+                    gameManager.playerList[0].GiveCode4();
+                    gameManager.playerList[1].GiveCode4();
+                }
+                
                
             }
         }

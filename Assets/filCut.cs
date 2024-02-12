@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using FishNet.Object;
 using UnityEngine;
 
-public class filCut : NetworkBehaviour
+public class filCut : MonoBehaviour
 {
 
     public GameManager gameManager;
@@ -16,32 +16,30 @@ public class filCut : NetworkBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                   if (LocalConnection.ClientId == 0)
-                    {
-                        if(gameManager.gainscissors && gameManager.cutWrong==false)
+                if(gameManager.gainscissors && gameManager.cutWrong==false)
                         {
                             if (hit.transform.name == "filJaune")
                             {
                                 gameManager.rightCut();
-                                Despawn(hit.transform.gameObject);
+                                hit.transform.gameObject.SetActive(false);
                             }
                             else if (hit.transform.name == "filBleu")
                             {
                                 gameManager.wrongCut();
-                                Despawn(hit.transform.gameObject);
+                                hit.transform.gameObject.SetActive(false);
                             }
                             else if (hit.transform.name == "filRouge")
                             {
                                 gameManager.wrongCut();
-                                Despawn(hit.transform.gameObject);
+                                hit.transform.gameObject.SetActive(false);
                             }
                             else if (hit.transform.name == "filVert")
                             {
                                 gameManager.wrongCut();
-                                Despawn(hit.transform.gameObject);
+                                hit.transform.gameObject.SetActive(false);
                             }
                         }
-                    }
+                    
 
                
             }

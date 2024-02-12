@@ -79,6 +79,7 @@ public class ButtonCodeFinal : NetworkBehaviour
             }
         }
     }
+    [ObserversRpc(RunLocally = true)]
     public void sendCode()
     {
         if(PushedButtons.Count > 4)
@@ -116,7 +117,7 @@ public class ButtonCodeFinal : NetworkBehaviour
         UpdateCodeFinalText(code);
         
     }
-    [ObserversRpc(RunLocally = true)]
+    
     public void UpdateCodeFinalText(string message)
     {
         CodeFinal.text = message;

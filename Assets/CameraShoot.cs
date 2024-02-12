@@ -79,12 +79,12 @@ public class CameraShoot : NetworkBehaviour
             {
                 if (LocalConnection.ClientId == 0)
                 {
-                    Spawn(gameManager.scissors);
+                    gameManager.scissors.SetActive(true);
                     
                 }
                 else if (LocalConnection.ClientId == 1)
                 {
-                    Spawn(gameManager.code2);
+                    gameManager.code2.SetActive(true);
                 }
             }
         }
