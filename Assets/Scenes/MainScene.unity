@@ -4729,7 +4729,7 @@ MonoBehaviour:
   TimeToWaitBeforeStart: 30
   code3: {fileID: 190469853}
   bureau: {fileID: 6485980579715891990}
-  paperplayer1: {fileID: 0}
+  paperplayer1: {fileID: 1404516989}
   code4: {fileID: 1412083523}
   GameEnd: 0
 --- !u!4 &231689810
@@ -6388,7 +6388,6 @@ MonoBehaviour:
   - {fileID: 66207674}
   - {fileID: 4040474023884793343}
   - {fileID: 37538921}
-  - {fileID: 1874140047}
   SerializedTransformProperties:
     Position: {x: 0, y: 0, z: 0}
     Rotation: {x: 0, y: 0, z: 0, w: 1}
@@ -7914,10 +7913,34 @@ MonoBehaviour:
     m_RotationOrder: 4
   OnTargetFound:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 231689809}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ScanEnim1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTargetLost:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 231689809}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: DesScanEnim1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &439853792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10759,7 +10782,6 @@ MonoBehaviour:
   - {fileID: 788949915}
   - {fileID: 2089869094}
   - {fileID: 604263828}
-  - {fileID: 964120518}
   SerializedTransformProperties:
     Position: {x: 0, y: 0.001, z: 0}
     Rotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
@@ -15130,7 +15152,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 837669245}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
@@ -15165,7 +15187,7 @@ MonoBehaviour:
   - {fileID: 190469854}
   SerializedTransformProperties:
     Position: {x: 0, y: 0, z: 0}
-    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    Rotation: {x: -0, y: -0, z: -0, w: 1}
     LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   _isNetworked: 1
   _isGlobal: 0
@@ -17610,11 +17632,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b716c41e9b56b4baafaf13a523ba2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <IsNested>k__BackingField: 1
-  <ComponentIndex>k__BackingField: 4
+  <IsNested>k__BackingField: 0
+  <ComponentIndex>k__BackingField: 0
   <PredictedSpawn>k__BackingField: {fileID: 0}
   _networkBehaviours: []
-  <ParentNetworkObject>k__BackingField: {fileID: 568678628}
+  <ParentNetworkObject>k__BackingField: {fileID: 0}
   <ChildNetworkObjects>k__BackingField: []
   SerializedTransformProperties:
     Position: {x: 0, y: 0.040999997, z: 0}
@@ -33421,11 +33443,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b716c41e9b56b4baafaf13a523ba2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <IsNested>k__BackingField: 1
-  <ComponentIndex>k__BackingField: 16
+  <IsNested>k__BackingField: 0
+  <ComponentIndex>k__BackingField: 0
   <PredictedSpawn>k__BackingField: {fileID: 0}
   _networkBehaviours: []
-  <ParentNetworkObject>k__BackingField: {fileID: 345294347}
+  <ParentNetworkObject>k__BackingField: {fileID: 0}
   <ChildNetworkObjects>k__BackingField: []
   SerializedTransformProperties:
     Position: {x: 0, y: 0.040999997, z: 0}
@@ -37198,7 +37220,7 @@ Transform:
   m_GameObject: {fileID: 2072077485}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.56, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 837669246}
@@ -41739,7 +41761,7 @@ Transform:
   m_GameObject: {fileID: 6477120228591664465}
   m_LocalRotation: {x: -0.6272114, y: -0.32650557, z: -0.6272114, w: -0.32650557}
   m_LocalPosition: {x: 0, y: 0.010000001, z: 0}
-  m_LocalScale: {x: 250.00002, y: 250.00002, z: 250}
+  m_LocalScale: {x: 300, y: 300, z: 300}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4693340534508032090}
@@ -43043,7 +43065,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &4292399116281307496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44680,7 +44702,7 @@ MonoBehaviour:
   SerializedTransformProperties:
     Position: {x: 0, y: 0.010000001, z: 0}
     Rotation: {x: -0.6272114, y: -0.32650557, z: -0.6272114, w: -0.32650557}
-    LocalScale: {x: 250.00002, y: 250.00002, z: 250}
+    LocalScale: {x: 300, y: 300, z: 300}
   _isNetworked: 1
   _isGlobal: 0
   _initializeOrder: 0
@@ -44710,7 +44732,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &6485980579715891991
 AudioSource:
   m_ObjectHideFlags: 0
