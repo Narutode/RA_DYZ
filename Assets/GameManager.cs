@@ -32,14 +32,18 @@ public class GameManager : NetworkBehaviour
     [SyncVar] public bool gainpistolP1 = false;
     [SyncVar] public bool gainpistolP2 = false;
     [SyncVar] public bool gainCode1 = false;
+    public GameObject TerrainEnim1;
+    public GameObject paperEnim1;
     [Header("Enim 2")]
     public GameObject playerHand1;
     public GameObject playerHand2;
     public List<GameObject> NPCList;
-
     public GameObject scissors;
     public GameObject code2;
     [SyncVar] public bool gainscissors= false;
+    
+    public GameObject TerrainEnim2;
+    public GameObject paperEnim2;
     [Header("Enim 3")]
     public GameObject paperplayer2;
     public GameObject bombeplayer1;
@@ -73,15 +77,16 @@ public class GameManager : NetworkBehaviour
         {
             PlayerNetwork playerP1 = playerList[0];
             playerP1.GiveCode1();
-            PlayerNetwork playerP2 = playerList[1];
-            playerP2.GiveCode1();
+
         }
         else if(LocalConnection.ClientId == 1)
         {
-
+            PlayerNetwork playerP2 = playerList[1];
+            playerP2.GiveCode1();
         }   
     }
 
+    
     public void ScanEnim1()
     {
         if(LocalConnection.ClientId == 0)
@@ -95,6 +100,17 @@ public class GameManager : NetworkBehaviour
         if(playerScanEnim1==playerScanNeed)
         {
             //SetActiveEnim(Enim1, true);
+        }
+        if(LocalConnection.ClientId == 0)
+        {
+            TerrainEnim1.SetActive(true);
+            paperEnim1.SetActive(false);
+        }
+
+        if(LocalConnection.ClientId == 1)
+        {
+            paperEnim1.SetActive(true);
+            TerrainEnim1.SetActive(false);
         }
     }
 
@@ -132,6 +148,17 @@ public class GameManager : NetworkBehaviour
             }
             
         }
+        if(LocalConnection.ClientId == 0)
+        {
+            TerrainEnim2.SetActive(true);
+            paperEnim2.SetActive(false);
+        }
+
+        if(LocalConnection.ClientId == 1)
+        {
+            paperEnim2.SetActive(true);
+            TerrainEnim2.SetActive(false);
+        }
 
     }
     public void ScanEnim3()
@@ -153,13 +180,13 @@ public class GameManager : NetworkBehaviour
                 if(LocalConnection.ClientId == 0 && gainscissors)
                 {
                     scissorsplayer1.SetActive(true);
+                    
                 }
             }
             if(paperplayer2.activeSelf == false)
             {
                 if(LocalConnection.ClientId == 1)
                 {
-                    paperplayer2.SetActive(true);
                     PlayerNetwork playerP2 = playerList[1];
                     if(!playerP2.Enim3WrongTimeLeft.gameObject.activeSelf)
                     {
@@ -183,11 +210,6 @@ public class GameManager : NetworkBehaviour
                         var child = bombeplayer1.transform.GetChild(i).gameObject;
                         child.SetActive(true);
                     }*/
-                }
-
-                if (LocalConnection.ClientId == 1)
-                {
-                    bombeplayer1.SetActive(false);
                 }
             }
             if(LocalConnection.ClientId == 0)
@@ -215,8 +237,16 @@ public class GameManager : NetworkBehaviour
                 }
             }
               
-            
-            
+            if (LocalConnection.ClientId == 1)
+            {
+                bombeplayer1.SetActive(false);
+                bombeplayer1.GetComponent<MeshRenderer>().enabled = false;
+            }
+
+            if (LocalConnection.ClientId == 0)
+            {
+                paperplayer2.SetActive(false);
+            }
         }
     }
     public void ScanEnim4()
@@ -258,6 +288,19 @@ public class GameManager : NetworkBehaviour
                 paperplayer1.SetActive(false);
             }
         }
+        if(LocalConnection.ClientId == 0)
+        {
+            bureau.SetActive(true);
+            paperplayer1.SetActive(false);
+        }
+
+        if(LocalConnection.ClientId == 1)
+        {
+            paperplayer1.SetActive(true);
+            bureau.SetActive(false);
+        }
+
+    
     }
     public void ScanEnim5()
     {

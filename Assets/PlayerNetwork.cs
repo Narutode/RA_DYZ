@@ -59,6 +59,7 @@ public class PlayerNetwork : NetworkBehaviour
         if (networkObject.Owner.ClientId == -1)
         {
             id = 0;
+           
         }
         else
         {

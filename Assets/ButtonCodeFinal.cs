@@ -88,7 +88,7 @@ public class ButtonCodeFinal : NetworkBehaviour
             //remove first element
             PushedButtons.RemoveAt(0);
         }
-         if (PushedButtons[0] == 1 && PushedButtons[1] == 2 && PushedButtons[2] == 3 && PushedButtons[3] == 4)
+         if (PushedButtons[0] == 8 && PushedButtons[1] == 1 && PushedButtons[2] == 6 && PushedButtons[3] == 5)
         {
             if(LocalConnection.ClientId == 0)
             {
