@@ -17,17 +17,6 @@ public class GameManager : NetworkBehaviour
         Color.red,
         Color.blue,
     };
-    public int playerScanNeed=2;
-    [SyncVar] public int playerScanEnim1 = 0;
-    [SyncVar] public int playerScanEnim2 = 0;
-    [SyncVar] public int playerScanEnim3 = 0;
-    [SyncVar] public int playerScanEnim4 = 0;
-    [SyncVar] public int playerScanEnim5 = 0;
-    public GameObject Enim1;
-    public GameObject Enim2;
-    public GameObject Enim3;
-    public GameObject Enim4;
-    public GameObject Enim5;
     [Header("Enim 1")]
     [SyncVar] public bool gainpistolP1 = false;
     [SyncVar] public bool gainpistolP2 = false;
@@ -58,7 +47,7 @@ public class GameManager : NetworkBehaviour
     public GameObject code4;
     
     [Header("Enim 5")]
-    public bool GameEnd;
+    [SyncVar] public bool GameEnd;
     
     public void GivePistolP1()
     {
@@ -89,10 +78,6 @@ public class GameManager : NetworkBehaviour
     
     public void ScanEnim1()
     {
-        if(playerScanEnim1==playerScanNeed)
-        {
-            //SetActiveEnim(Enim1, true);
-        }
         if(LocalConnection.ClientId == 0)
         {
             TerrainEnim1.SetActive(true);
@@ -110,12 +95,7 @@ public class GameManager : NetworkBehaviour
 
     public void ScanEnim2()
     {
-
-        if(playerScanEnim2==playerScanNeed)
-        {
-            //SetActiveEnim(Enim2, true);
-            
-            if(playerHand1.activeSelf == false)
+        if(playerHand1.activeSelf == false)
             {
                 if(LocalConnection.ClientId == 0 && gainpistolP1)
                 {
@@ -131,13 +111,10 @@ public class GameManager : NetworkBehaviour
                     playerList[1].Enim2Interface.SetActive(true);
                 }
             }
-            
-        }
-        if(LocalConnection.ClientId == 0)
-        {
+        if(LocalConnection.ClientId == 0) {
             TerrainEnim2.SetActive(true);
             paperEnim2.SetActive(false);
-        }
+         }
 
         if(LocalConnection.ClientId == 1)
         {
@@ -149,59 +126,16 @@ public class GameManager : NetworkBehaviour
     public void ScanEnim3()
     {
 
-        if(playerScanEnim3==playerScanNeed)
+        if(scissorsplayer1.activeSelf == false)
         {
-
-            //SetActiveEnim(Enim3, true);
-            if(scissorsplayer1.activeSelf == false)
+            if(LocalConnection.ClientId == 0 && gainscissors)
             {
-                if(LocalConnection.ClientId == 0 && gainscissors)
-                {
-                    scissorsplayer1.SetActive(true);
-                    
-                }
+                scissorsplayer1.SetActive(true);
+                
             }
-            if(paperplayer2.activeSelf == false)
-            {
-                if(LocalConnection.ClientId == 1)
-                {
-                    PlayerNetwork playerP2 = playerList[1];
-                    if(!playerP2.Enim3WrongTimeLeft.gameObject.activeSelf)
-                    {
-                        playerP2.Enim3WrongTimeLeft.gameObject.SetActive(true);
-                    }
-                    if(!playerP2.Enim3WrongMessage.gameObject.activeSelf)
-                    {
-                        playerP2.Enim3WrongMessage.gameObject.SetActive(true);
-                    }
-                }
-            }
-        
-            if(bombeplayer1.activeSelf == false)
-            {
-                if(LocalConnection.ClientId == 0)
-                {
-                    Spawn(bombeplayer1);
-                    bombeplayer1.SetActive(true);
-                    /*for (int i = 0; i < bombeplayer1.transform.childCount; i++)
-                    {
-                        var child = bombeplayer1.transform.GetChild(i).gameObject;
-                        child.SetActive(true);
-                    }*/
-                }
-            }
-            if(LocalConnection.ClientId == 0)
-            {
-                PlayerNetwork playerP1 = playerList[0];
-                if(!playerP1.Enim3WrongTimeLeft.gameObject.activeSelf)
-                {
-                    playerP1.Enim3WrongTimeLeft.gameObject.SetActive(true);
-                }
-                if(!playerP1.Enim3WrongMessage.gameObject.activeSelf)
-                {
-                    playerP1.Enim3WrongMessage.gameObject.SetActive(true);
-                }
-            }
+        }
+        if(paperplayer2.activeSelf == false)
+        {
             if(LocalConnection.ClientId == 1)
             {
                 PlayerNetwork playerP2 = playerList[1];
@@ -214,26 +148,60 @@ public class GameManager : NetworkBehaviour
                     playerP2.Enim3WrongMessage.gameObject.SetActive(true);
                 }
             }
-              
-            if (LocalConnection.ClientId == 1)
+        }
+    
+        if(bombeplayer1.activeSelf == false)
+        {
+            if(LocalConnection.ClientId == 0)
             {
-                bombeplayer1.SetActive(false);
-                bombeplayer1.GetComponent<MeshRenderer>().enabled = false;
-            }
-
-            if (LocalConnection.ClientId == 0)
-            {
-                paperplayer2.SetActive(false);
+                Spawn(bombeplayer1);
+                bombeplayer1.SetActive(true);
+                /*for (int i = 0; i < bombeplayer1.transform.childCount; i++)
+                {
+                    var child = bombeplayer1.transform.GetChild(i).gameObject;
+                    child.SetActive(true);
+                }*/
             }
         }
+        if(LocalConnection.ClientId == 0)
+        {
+            PlayerNetwork playerP1 = playerList[0];
+            if(!playerP1.Enim3WrongTimeLeft.gameObject.activeSelf)
+            {
+                playerP1.Enim3WrongTimeLeft.gameObject.SetActive(true);
+            }
+            if(!playerP1.Enim3WrongMessage.gameObject.activeSelf)
+            {
+                playerP1.Enim3WrongMessage.gameObject.SetActive(true);
+            }
+        }
+        if(LocalConnection.ClientId == 1)
+        {
+            PlayerNetwork playerP2 = playerList[1];
+            if(!playerP2.Enim3WrongTimeLeft.gameObject.activeSelf)
+            {
+                playerP2.Enim3WrongTimeLeft.gameObject.SetActive(true);
+            }
+            if(!playerP2.Enim3WrongMessage.gameObject.activeSelf)
+            {
+                playerP2.Enim3WrongMessage.gameObject.SetActive(true);
+            }
+        }
+          
+        if (LocalConnection.ClientId == 1)
+        {
+            bombeplayer1.SetActive(false);
+            bombeplayer1.GetComponent<MeshRenderer>().enabled = false;
+        }
+
+        if (LocalConnection.ClientId == 0)
+        {
+            paperplayer2.SetActive(false);
+        }
+        
     }
     public void ScanEnim4()
     {
-
-        if(playerScanEnim4==playerScanNeed)
-        {
-            //SetActiveEnim(Enim4, true);
-        }
         if(bureau.activeSelf == false)
         {
             if(LocalConnection.ClientId == 0)
@@ -273,53 +241,41 @@ public class GameManager : NetworkBehaviour
 
     
     }
-    public void ScanEnim5()
-    {
 
-        if(playerScanEnim5==playerScanNeed)
-        {
-            //SetActiveEnim(Enim5, true);
-        }
-    }
     public void DesScanEnim1()
     {
 
-        if(playerScanEnim1!=playerScanNeed)
-        {
-            //SetActiveEnim(Enim1, false);
-        }
+       
     }
     public void DesScanEnim2()
     {
 
-        if(playerScanEnim2!=playerScanNeed)
+      
+        //SetActiveEnim(Enim2, false);
+        if (playerHand1.activeSelf)
         {
-            //SetActiveEnim(Enim2, false);
-            if (playerHand1.activeSelf)
+            if(LocalConnection.ClientId == 0)
             {
-                if(LocalConnection.ClientId == 0)
-                {
-                    playerHand1.SetActive(false);
-                    playerList[0].Enim2Interface.SetActive(false);
-                }
-            }
-            if (playerHand2.activeSelf)
-            {
-                if(LocalConnection.ClientId == 1)
-                {
-                    playerHand2.SetActive(false);
-                    playerList[1].Enim2Interface.SetActive(false);
-                }
+                playerHand1.SetActive(false);
+                playerList[0].Enim2Interface.SetActive(false);
             }
         }
+        if (playerHand2.activeSelf)
+        {
+            if(LocalConnection.ClientId == 1)
+            {
+                playerHand2.SetActive(false);
+                playerList[1].Enim2Interface.SetActive(false);
+            }
+        }
+        
     }
     public void DesScanEnim3()
     {
 
-        if(playerScanEnim3!=playerScanNeed)
-        {
+      
             //(Enim3, false);
-            if(scissorsplayer1.activeSelf && Enim3.activeSelf)
+            if(scissorsplayer1.activeSelf )
             {
                 if(LocalConnection.ClientId == 0 && gainscissors)
                 {
@@ -327,7 +283,7 @@ public class GameManager : NetworkBehaviour
                    
                 }
             }
-            if(paperplayer2.activeSelf && Enim3.activeSelf)
+            if(paperplayer2.activeSelf )
             {
                 if(LocalConnection.ClientId == 1)
                 {
@@ -345,7 +301,7 @@ public class GameManager : NetworkBehaviour
                 }
             }
             
-            if(bombeplayer1.activeSelf && Enim3.activeSelf)
+            if(bombeplayer1.activeSelf )
             {
                 if(LocalConnection.ClientId == 0)
                 {
@@ -379,15 +335,14 @@ public class GameManager : NetworkBehaviour
            
 
 
-        }
+        
         
 
     }
     public void DesScanEnim4()
     {
 
-        if(playerScanEnim4!=playerScanNeed)
-        {
+       
             //SetActiveEnim(Enim4, false);
             if(bureau.activeSelf == true)
             {
@@ -404,16 +359,9 @@ public class GameManager : NetworkBehaviour
                     paperplayer1.SetActive(false);
                 }
             }
-        }
+        
     }
-    public void DesScanEnim5()
-    {
 
-        if(playerScanEnim5!=playerScanNeed)
-        {
-           // SetActiveEnim(Enim5, false);
-        }
-    }
     public void wrongCut()
     {
         Debug.Log("wrong cut");

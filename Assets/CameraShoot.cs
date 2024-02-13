@@ -14,8 +14,7 @@ public class CameraShoot : NetworkBehaviour
    
     void Update()
     {
-        if(gameManager.playerScanEnim2 == gameManager.playerScanNeed)
-        {
+       
             if(LocalConnection.ClientId == 0 && !gameManager.gainpistolP1)
             {
                 return;
@@ -45,8 +44,6 @@ public class CameraShoot : NetworkBehaviour
                     }
                 }
             }
-        }
-
     }
 
     void ShootBullet(Transform npcTransform)
