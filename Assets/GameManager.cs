@@ -411,7 +411,7 @@ public class GameManager : NetworkBehaviour
     {
         bombeplayer1.SetActive(false);
         paperplayer2.SetActive(false);
-        Spawn(code3);
+        //Spawn(code3);
     }
     public void rightEnim4()
     {
