@@ -138,6 +138,8 @@ public class GameManager : NetworkBehaviour
         {
             if(LocalConnection.ClientId == 1)
             {
+                Spawn(paperplayer2);
+                paperplayer2.SetActive(true);
                 PlayerNetwork playerP2 = playerList[1];
                 if(!playerP2.Enim3WrongTimeLeft.gameObject.activeSelf)
                 {
@@ -274,54 +276,21 @@ public class GameManager : NetworkBehaviour
     {
 
       
-            //(Enim3, false);
-            if(scissorsplayer1.activeSelf )
+        //(Enim3, false);
+        if(scissorsplayer1.activeSelf )
+        {
+            if(LocalConnection.ClientId == 0 && gainscissors)
             {
-                if(LocalConnection.ClientId == 0 && gainscissors)
-                {
-                    scissorsplayer1.SetActive(false);
-                   
-                }
+                scissorsplayer1.SetActive(false);
+               
             }
-            if(paperplayer2.activeSelf )
-            {
-                if(LocalConnection.ClientId == 1)
-                {
-                    paperplayer2.SetActive(false);
-                    
-                    PlayerNetwork playerP2 = playerList[1];
-                    if(playerP2.Enim3WrongTimeLeft.gameObject.activeSelf)
-                    {
-                        playerP2.Enim3WrongTimeLeft.gameObject.SetActive(false);
-                    }
-                    if(playerP2.Enim3WrongMessage.gameObject.activeSelf)
-                    {
-                        playerP2.Enim3WrongMessage.gameObject.SetActive(false);
-                    }
-                }
-            }
-            
-            if(bombeplayer1.activeSelf )
-            {
-                if(LocalConnection.ClientId == 0)
-                {
-                    bombeplayer1.SetActive(false);
-                }
-            }
-            if(LocalConnection.ClientId == 0)
-            {
-                PlayerNetwork playerP1 = playerList[0];
-                if(playerP1.Enim3WrongTimeLeft.gameObject.activeSelf)
-                {
-                    playerP1.Enim3WrongTimeLeft.gameObject.SetActive(false);
-                }
-                if(playerP1.Enim3WrongMessage.gameObject.activeSelf)
-                {
-                    playerP1.Enim3WrongMessage.gameObject.SetActive(false);
-                }
-            }
+        }
+        if(paperplayer2.activeSelf )
+        {
             if(LocalConnection.ClientId == 1)
             {
+                paperplayer2.SetActive(false);
+                
                 PlayerNetwork playerP2 = playerList[1];
                 if(playerP2.Enim3WrongTimeLeft.gameObject.activeSelf)
                 {
@@ -332,12 +301,39 @@ public class GameManager : NetworkBehaviour
                     playerP2.Enim3WrongMessage.gameObject.SetActive(false);
                 }
             }
-           
-
-
+        }
         
-        
-
+        if(bombeplayer1.activeSelf )
+        {
+            if(LocalConnection.ClientId == 0)
+            {
+                bombeplayer1.SetActive(false);
+            }
+        }
+        if(LocalConnection.ClientId == 0)
+        {
+            PlayerNetwork playerP1 = playerList[0];
+            if(playerP1.Enim3WrongTimeLeft.gameObject.activeSelf)
+            {
+                playerP1.Enim3WrongTimeLeft.gameObject.SetActive(false);
+            }
+            if(playerP1.Enim3WrongMessage.gameObject.activeSelf)
+            {
+                playerP1.Enim3WrongMessage.gameObject.SetActive(false);
+            }
+        }
+        if(LocalConnection.ClientId == 1)
+        {
+            PlayerNetwork playerP2 = playerList[1];
+            if(playerP2.Enim3WrongTimeLeft.gameObject.activeSelf)
+            {
+                playerP2.Enim3WrongTimeLeft.gameObject.SetActive(false);
+            }
+            if(playerP2.Enim3WrongMessage.gameObject.activeSelf)
+            {
+                playerP2.Enim3WrongMessage.gameObject.SetActive(false);
+            }
+        }
     }
     public void DesScanEnim4()
     {
@@ -411,7 +407,7 @@ public class GameManager : NetworkBehaviour
     {
         bombeplayer1.SetActive(false);
         paperplayer2.SetActive(false);
-        //Spawn(code3);
+        Spawn(code3);
     }
     public void rightEnim4()
     {
