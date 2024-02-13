@@ -10,6 +10,7 @@ public class ButtonCodeFinal : NetworkBehaviour
     public List<int> PushedButtons = new List<int>();
     public GameManager gameManager;
     public TextMeshProUGUI CodeFinal;
+    public static event GameEnd IsGameEnd;
     void Start()
     {
 
@@ -92,10 +93,12 @@ public class ButtonCodeFinal : NetworkBehaviour
             if(LocalConnection.ClientId == 0)
             {
                 gameManager.playerList[0].EndGameMessage.gameObject.SetActive(true);
+                IsGameEnd?.Invoke(true);
             }
             else if (LocalConnection.ClientId == 1)
             {
                 gameManager.playerList[1].EndGameMessage.gameObject.SetActive(true);
+                IsGameEnd?.Invoke(true);
             }
         }
         string code = "";

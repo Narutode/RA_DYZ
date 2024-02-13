@@ -11,6 +11,7 @@ public class GameManager : NetworkBehaviour
     [SerializeField] public List<PlayerNetwork> playerList;
     public static event TimeUpdate OnTimeUpdate;
     public static event UpdateMessage OnMessageUpdate;
+    
     public List<Color> playerColors = new List<Color>
     {
         Color.red,
@@ -51,7 +52,9 @@ public class GameManager : NetworkBehaviour
     public GameObject bureau;
     public GameObject paperplayer1;
     public GameObject code4;
-    /*[Header("Enim 5")]*/
+    
+    [Header("Enim 5")]
+    public bool GameEnd;
     
     public void GivePistolP1()
     {
@@ -70,11 +73,12 @@ public class GameManager : NetworkBehaviour
         {
             PlayerNetwork playerP1 = playerList[0];
             playerP1.GiveCode1();
+            PlayerNetwork playerP2 = playerList[1];
+            playerP2.GiveCode1();
         }
         else if(LocalConnection.ClientId == 1)
         {
-            PlayerNetwork playerP2 = playerList[1];
-            playerP2.GiveCode1();
+
         }   
     }
 
@@ -172,7 +176,18 @@ public class GameManager : NetworkBehaviour
             {
                 if(LocalConnection.ClientId == 0)
                 {
+                    Spawn(bombeplayer1);
                     bombeplayer1.SetActive(true);
+                    /*for (int i = 0; i < bombeplayer1.transform.childCount; i++)
+                    {
+                        var child = bombeplayer1.transform.GetChild(i).gameObject;
+                        child.SetActive(true);
+                    }*/
+                }
+
+                if (LocalConnection.ClientId == 1)
+                {
+                    bombeplayer1.SetActive(false);
                 }
             }
             if(LocalConnection.ClientId == 0)
@@ -220,16 +235,27 @@ public class GameManager : NetworkBehaviour
         }
         if(bureau.activeSelf == false)
         {
-            if(LocalConnection.ClientId == 1)
+            if(LocalConnection.ClientId == 0)
             {
+                Spawn(bureau);
                 bureau.SetActive(true);
+            }
+
+            if (LocalConnection.ClientId == 1)
+            {
+                bureau.SetActive(false);
             }
         }
         if(paperplayer1.activeSelf == false)
         {
-            if(LocalConnection.ClientId == 0)
+            if(LocalConnection.ClientId == 1)
             {
+                Spawn(paperplayer1);
                 paperplayer1.SetActive(true);
+            }
+            if (LocalConnection.ClientId == 0)
+            {
+                paperplayer1.SetActive(false);
             }
         }
     }
@@ -338,15 +364,6 @@ public class GameManager : NetworkBehaviour
                 if(LocalConnection.ClientId == 0)
                 {
                     bombeplayer1.SetActive(false);
-                    PlayerNetwork playerP1 = playerList[0];
-                    if(playerP1.Enim3WrongTimeLeft.gameObject.activeSelf)
-                    {
-                        playerP1.Enim3WrongTimeLeft.gameObject.SetActive(false);
-                    }
-                    if(playerP1.Enim3WrongMessage.gameObject.activeSelf)
-                    {
-                        playerP1.Enim3WrongMessage.gameObject.SetActive(false);
-                    }
                 }
             }
             if(LocalConnection.ClientId == 0)
@@ -474,12 +491,12 @@ public class GameManager : NetworkBehaviour
     {
         bombeplayer1.SetActive(false);
         paperplayer2.SetActive(false);
-        code3.SetActive(true);
+        Spawn(code3);
     }
     public void rightEnim4()
     {
         bureau.SetActive(false);
         paperplayer1.SetActive(false);
-        code4.SetActive(true);
+        Spawn(code4);
     }
 }

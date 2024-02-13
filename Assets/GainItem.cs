@@ -16,23 +16,23 @@ public class GainItem : NetworkBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                if(itemName == "Scissors" && LocalConnection.ClientId == 0)
+                if(itemName == "Scissors" )
                 {
                     gameManager.playerList[0].GiveScissors();
                     gameManager.gainscissors = true;
                 }
-                if(itemName == "Code2" && LocalConnection.ClientId == 1)
+                if(itemName == "Code2")
                 {
                     gameManager.playerList[0].GiveCode2();
                     gameManager.playerList[1].GiveCode2();
                     
                 }
-                if(itemName == "Code3" && LocalConnection.ClientId == 0)
+                if(itemName == "Code3")
                 {
                     gameManager.playerList[0].GiveCode3();
                     gameManager.playerList[1].GiveCode3();
                 }
-                if(itemName == "Code4" && LocalConnection.ClientId == 1)
+                if(itemName == "Code4" )
                 {
                     gameManager.playerList[0].GiveCode4();
                     gameManager.playerList[1].GiveCode4();

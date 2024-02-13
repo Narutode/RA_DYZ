@@ -8,6 +8,8 @@ using UnityEngine;
 
 public delegate void TimeUpdate(float newTime);
 public delegate void UpdateMessage(string message);
+
+public delegate void GameEnd(bool IsEnd);
 public class PlayerNetwork : NetworkBehaviour
 {
     // Start is called before the first frame update
@@ -51,6 +53,7 @@ public class PlayerNetwork : NetworkBehaviour
         base.OnStartClient();  
         GameManager.OnTimeUpdate += UpdateTimeText;
         GameManager.OnMessageUpdate += UpdateMessageText;
+        ButtonCodeFinal.IsGameEnd += UpdateEndMessage;
         gameManager = FindObjectOfType<GameManager>();
         NetworkObject networkObject = GetComponent<NetworkObject>();
         if (networkObject.Owner.ClientId == -1)
@@ -136,6 +139,13 @@ public class PlayerNetwork : NetworkBehaviour
     {
         Enim3WrongMessage.text = message;
     }
+    [ObserversRpc(RunLocally = true)]
+    private void UpdateEndMessage(bool active)
+    {
+        EndGameMessage.gameObject.SetActive(active);
+    }
+    
+    
     
 
     
