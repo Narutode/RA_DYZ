@@ -23,19 +23,16 @@ public class GainItem : NetworkBehaviour
                 }
                 if(itemName == "Code2")
                 {
-                    gameManager.playerList[0].GiveCode2();
-                    gameManager.playerList[1].GiveCode2();
+                    gameManager.GiveCode2();
                     
                 }
                 if(itemName == "Code3")
                 {
-                    gameManager.playerList[0].GiveCode3();
-                    gameManager.playerList[1].GiveCode3();
+                    gameManager.GiveCode3();
                 }
                 if(itemName == "Code4" )
                 {
-                    gameManager.playerList[0].GiveCode4();
-                    gameManager.playerList[1].GiveCode4();
+                    gameManager.GiveCode4();
                 }
                 
                

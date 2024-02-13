@@ -542,4 +542,49 @@ public class GameManager : NetworkBehaviour
         paperplayer1.SetActive(false);
         Spawn(code4);
     }
+    [ObserversRpc(RunLocally = true)]
+    public void GiveCode2()
+    {
+        if(LocalConnection.ClientId == 0)
+        {
+            PlayerNetwork playerP1 = playerList[0];
+            playerP1.GiveCode2();
+
+        }
+        else if(LocalConnection.ClientId == 1)
+        {
+            PlayerNetwork playerP2 = playerList[1];
+            playerP2.GiveCode2();
+        }   
+    }
+    [ObserversRpc(RunLocally = true)]
+    public void GiveCode3()
+    {
+        if(LocalConnection.ClientId == 0)
+        {
+            PlayerNetwork playerP1 = playerList[0];
+            playerP1.GiveCode3();
+
+        }
+        else if(LocalConnection.ClientId == 1)
+        {
+            PlayerNetwork playerP2 = playerList[1];
+            playerP2.GiveCode3();
+        }   
+    }
+    [ObserversRpc(RunLocally = true)]
+    public void GiveCode4()
+    {
+        if(LocalConnection.ClientId == 0)
+        {
+            PlayerNetwork playerP1 = playerList[0];
+            playerP1.GiveCode4();
+
+        }
+        else if(LocalConnection.ClientId == 1)
+        {
+            PlayerNetwork playerP2 = playerList[1];
+            playerP2.GiveCode4();
+        }   
+    }
 }
