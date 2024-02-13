@@ -89,14 +89,6 @@ public class GameManager : NetworkBehaviour
     
     public void ScanEnim1()
     {
-        if(LocalConnection.ClientId == 0)
-        {
-            playerScanEnim1++;
-        }
-        else if(LocalConnection.ClientId == 1)
-        {
-            playerScanEnim1++;
-        }
         if(playerScanEnim1==playerScanNeed)
         {
             //SetActiveEnim(Enim1, true);
@@ -118,14 +110,7 @@ public class GameManager : NetworkBehaviour
 
     public void ScanEnim2()
     {
-        if(LocalConnection.ClientId == 0)
-        {
-            playerScanEnim2++;
-        }
-        else if(LocalConnection.ClientId == 1)
-        {
-            playerScanEnim2++;
-        }
+
         if(playerScanEnim2==playerScanNeed)
         {
             //SetActiveEnim(Enim2, true);
@@ -163,14 +148,7 @@ public class GameManager : NetworkBehaviour
     }
     public void ScanEnim3()
     {
-        if(LocalConnection.ClientId == 0)
-        {
-            playerScanEnim3++;
-        }
-        else if(LocalConnection.ClientId == 1)
-        {
-            playerScanEnim3++;
-        }
+
         if(playerScanEnim3==playerScanNeed)
         {
 
@@ -251,14 +229,7 @@ public class GameManager : NetworkBehaviour
     }
     public void ScanEnim4()
     {
-        if(LocalConnection.ClientId == 0)
-        {
-            playerScanEnim4++;
-        }
-        else if(LocalConnection.ClientId == 1)
-        {
-            playerScanEnim4++;
-        }
+
         if(playerScanEnim4==playerScanNeed)
         {
             //SetActiveEnim(Enim4, true);
@@ -304,14 +275,7 @@ public class GameManager : NetworkBehaviour
     }
     public void ScanEnim5()
     {
-        if(LocalConnection.ClientId == 0)
-        {
-            playerScanEnim5++;
-        }
-        else if(LocalConnection.ClientId == 1)
-        {
-            playerScanEnim5++;
-        }
+
         if(playerScanEnim5==playerScanNeed)
         {
             //SetActiveEnim(Enim5, true);
@@ -319,14 +283,7 @@ public class GameManager : NetworkBehaviour
     }
     public void DesScanEnim1()
     {
-        if(LocalConnection.ClientId == 0)
-        {
-            playerScanEnim1--;
-        }
-        else if(LocalConnection.ClientId == 1)
-        {
-            playerScanEnim1--;
-        }
+
         if(playerScanEnim1!=playerScanNeed)
         {
             //SetActiveEnim(Enim1, false);
@@ -334,14 +291,7 @@ public class GameManager : NetworkBehaviour
     }
     public void DesScanEnim2()
     {
-        if(LocalConnection.ClientId == 0)
-        {
-            playerScanEnim2--;
-        }
-        else if(LocalConnection.ClientId == 1)
-        {
-            playerScanEnim2--;
-        }
+
         if(playerScanEnim2!=playerScanNeed)
         {
             //SetActiveEnim(Enim2, false);
@@ -365,14 +315,7 @@ public class GameManager : NetworkBehaviour
     }
     public void DesScanEnim3()
     {
-        if(LocalConnection.ClientId == 0)
-        {
-            playerScanEnim3--;
-        }
-        else if(LocalConnection.ClientId == 1)
-        {
-            playerScanEnim3--;
-        }
+
         if(playerScanEnim3!=playerScanNeed)
         {
             //(Enim3, false);
@@ -442,14 +385,7 @@ public class GameManager : NetworkBehaviour
     }
     public void DesScanEnim4()
     {
-        if(LocalConnection.ClientId == 0)
-        {
-            playerScanEnim4--;
-        }
-        else if(LocalConnection.ClientId == 1)
-        {
-            playerScanEnim4--;
-        }
+
         if(playerScanEnim4!=playerScanNeed)
         {
             //SetActiveEnim(Enim4, false);
@@ -472,14 +408,7 @@ public class GameManager : NetworkBehaviour
     }
     public void DesScanEnim5()
     {
-        if(LocalConnection.ClientId == 0)
-        {
-            playerScanEnim5--;
-        }
-        else if(LocalConnection.ClientId == 1)
-        {
-            playerScanEnim5--;
-        }
+
         if(playerScanEnim5!=playerScanNeed)
         {
            // SetActiveEnim(Enim5, false);
