@@ -3987,8 +3987,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _componentIndexCache: 1
-  _addedNetworkObject: {fileID: 0}
-  _networkObjectCache: {fileID: 0}
+  _addedNetworkObject: {fileID: 190469862}
+  _networkObjectCache: {fileID: 190469862}
   gameManager: {fileID: 231689809}
   itemName: Code3
 --- !u!114 &190469856
@@ -4004,8 +4004,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _componentIndexCache: 0
-  _addedNetworkObject: {fileID: 0}
-  _networkObjectCache: {fileID: 0}
+  _addedNetworkObject: {fileID: 190469862}
+  _networkObjectCache: {fileID: 190469862}
   _componentConfiguration: 0
   _synchronizeParent: 0
   _packing:
@@ -4142,10 +4142,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <IsNested>k__BackingField: 1
-  <ComponentIndex>k__BackingField: 0
+  <ComponentIndex>k__BackingField: 3
   <PredictedSpawn>k__BackingField: {fileID: 0}
-  _networkBehaviours: []
-  <ParentNetworkObject>k__BackingField: {fileID: 0}
+  _networkBehaviours:
+  - {fileID: 190469856}
+  - {fileID: 190469855}
+  <ParentNetworkObject>k__BackingField: {fileID: 837669247}
   <ChildNetworkObjects>k__BackingField: []
   SerializedTransformProperties:
     Position: {x: 0, y: 0, z: 0}
@@ -12386,7 +12388,7 @@ MonoBehaviour:
   <ChildNetworkObjects>k__BackingField:
   - {fileID: 6485980579715891994}
   - {fileID: 1404516990}
-  - {fileID: 0}
+  - {fileID: 1412083532}
   SerializedTransformProperties:
     Position: {x: 0, y: 0, z: 0}
     Rotation: {x: 0, y: 0, z: 0, w: 1}
@@ -15171,7 +15173,7 @@ MonoBehaviour:
   <ChildNetworkObjects>k__BackingField:
   - {fileID: 4292399116281307496}
   - {fileID: 6477120228591664466}
-  - {fileID: 0}
+  - {fileID: 190469862}
   SerializedTransformProperties:
     Position: {x: 0, y: 0, z: 0}
     Rotation: {x: -0, y: -0, z: -0, w: 1}
@@ -25017,8 +25019,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _componentIndexCache: 1
-  _addedNetworkObject: {fileID: 0}
-  _networkObjectCache: {fileID: 0}
+  _addedNetworkObject: {fileID: 1412083532}
+  _networkObjectCache: {fileID: 1412083532}
   gameManager: {fileID: 231689809}
   itemName: Code4
 --- !u!65 &1412083525
@@ -25047,8 +25049,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _componentIndexCache: 0
-  _addedNetworkObject: {fileID: 0}
-  _networkObjectCache: {fileID: 0}
+  _addedNetworkObject: {fileID: 1412083532}
+  _networkObjectCache: {fileID: 1412083532}
   _componentConfiguration: 0
   _synchronizeParent: 0
   _packing:
@@ -25172,10 +25174,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <IsNested>k__BackingField: 1
-  <ComponentIndex>k__BackingField: 0
+  <ComponentIndex>k__BackingField: 3
   <PredictedSpawn>k__BackingField: {fileID: 0}
-  _networkBehaviours: []
-  <ParentNetworkObject>k__BackingField: {fileID: 0}
+  _networkBehaviours:
+  - {fileID: 1412083526}
+  - {fileID: 1412083524}
+  <ParentNetworkObject>k__BackingField: {fileID: 677003285}
   <ChildNetworkObjects>k__BackingField: []
   SerializedTransformProperties:
     Position: {x: 0, y: 0, z: 0}
@@ -36914,7 +36918,7 @@ PrefabInstance:
     - target: {fileID: 4393252310584637056, guid: 0b650fca685f2eb41a86538aa883e4c1,
         type: 3}
       propertyPath: _autoStartType
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7443408887813606049, guid: 0b650fca685f2eb41a86538aa883e4c1,
         type: 3}
